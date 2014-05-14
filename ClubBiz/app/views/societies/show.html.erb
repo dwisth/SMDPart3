@@ -22,5 +22,7 @@
   <%= @society.verified %>
 </p>
 
-<%= link_to 'Edit', edit_society_path(@society) %> |
+<% if user_signed_in? %>
+	<%= link_to 'Edit', edit_society_path(@society) %> |
+<% end %>
 <%= link_to 'Back', societies_path %>
