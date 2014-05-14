@@ -12,16 +12,16 @@
   <div><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
-  <div><%= f.label :firstName %><br />
+  <div><% f.label :firstName %>First Name * <br />
     <%= f.text_field :firstName %></div>
 
-  <div><%= f.label :lastName %><br />
+  <div><% f.label :lastName %> Last Name * <br />
     <%= f.text_field :lastName %></div>
 
-  <div><%= f.label :phoneNum %><br />
+  <div><% f.label :phoneNum %> Phone Number <br />
     <%= f.text_field :phoneNum %></div>
 
-  <div><%= f.label :address %><br />
+  <div><% f.label :address %> Address <br />
     <%= f.text_field :address %></div>
 
   <div><%= f.submit "Sign up" %></div>

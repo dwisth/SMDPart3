@@ -19,6 +19,18 @@
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %></div>
 
+  <div><% f.label :firstName %>First Name * <br />
+    <%= f.text_field :firstName %></div>
+
+  <div><% f.label :lastName %> Last Name * <br />
+    <%= f.text_field :lastName %></div>
+
+  <div><% f.label :phoneNum %> Phone Number <br />
+    <%= f.text_field :phoneNum %></div>
+
+  <div><% f.label :address %> Address <br />
+    <%= f.text_field :address %></div>
+
   <div><%= f.submit "Update" %></div>
 <% end %>
 

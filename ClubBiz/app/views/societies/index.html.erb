@@ -1,3 +1,5 @@
+<% provide(:title, 'Societies') %>
+
 <h1>Listing societies</h1>
 
 <table>
@@ -21,8 +23,10 @@
         <td><%= society.membershipFee %></td>
         <td><%= society.verified %></td>
         <td><%= link_to 'Show', society %></td>
-        <td><%= link_to 'Edit', edit_society_path(society) %></td>
-        <td><%= link_to 'Destroy', society, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to 'Edit', edit_society_path(society) %></td>
+          <td><%= link_to 'Destroy', society, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +34,6 @@
 
 <br>
 
-<%= link_to 'New Society', new_society_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Society', new_society_path %>
+<% end %>

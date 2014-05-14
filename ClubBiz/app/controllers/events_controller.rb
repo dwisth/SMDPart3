@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  #From Q6
+  before_action :authenticate_user!, only: [:edit, :new, :update, :destroy]
 
   # GET /events
   # GET /events.json

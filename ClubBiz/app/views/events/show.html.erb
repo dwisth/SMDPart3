@@ -1,3 +1,6 @@
+<% provide(:title, 'Event - ' + @event.name) %>
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -16,12 +19,12 @@
 </p>
 
 <p>
-  <strong>Starttime:</strong>
+  <strong>Start Time:</strong>
   <%= @event.startTime %>
 </p>
 
 <p>
-  <strong>Endtime:</strong>
+  <strong>End Time:</strong>
   <%= @event.endTime %>
 </p>
 
@@ -31,7 +34,7 @@
 </p>
 
 <p>
-  <strong>Membersonly:</strong>
+  <strong>Members Only:</strong>
   <%= @event.membersOnly %>
 </p>
 
