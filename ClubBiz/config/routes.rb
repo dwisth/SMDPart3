@@ -1,4 +1,7 @@
 ClubBiz::Application.routes.draw do
+  get "search/societyAdvSearch"
+  get "search/eventAdvSearch"
+  get "search/dispResults"
   devise_for :users
   resources :societies
 
@@ -8,7 +11,11 @@ ClubBiz::Application.routes.draw do
   get "home/about"
   get "home/login"
 
+  get 'search/:searchKey', :to => "search#dispResults"
+
   root "home#index"
+ 
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
