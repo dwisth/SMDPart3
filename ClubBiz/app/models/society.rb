@@ -1,6 +1,6 @@
 class Society < ActiveRecord::Base
 
-	has_many :event
+	has_many :events
 
 	def self.search(search)
   		search_condition = "%" + search + "%"

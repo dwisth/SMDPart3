@@ -1,44 +1,49 @@
 <% provide(:title, 'Event - ' + @event.name) %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
+  <p>
+    <strong>Name:</strong>
+    <%= @event.name %>
+  </p>
 
-<p id="notice"><%= notice %></p>
+  <p>
+    <strong>Location:</strong>
+    <%= @event.location %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
+  <p>
+    <strong>Date:</strong>
+    <%= @event.date %>
+  </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @event.location %>
-</p>
+  <p>
+    <strong>Society:</strong>
+    <%= @event.society %>
+  </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
+  <p>
+    <strong>Start Time:</strong>
+    <%= @event.startTime %>
+  </p>
 
-<p>
-  <strong>Start Time:</strong>
-  <%= @event.startTime %>
-</p>
+  <p>
+    <strong>End Time:</strong>
+    <%= @event.endTime %>
+  </p>
 
-<p>
-  <strong>End Time:</strong>
-  <%= @event.endTime %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @event.description %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+  <p>
+    <strong>Members Only:</strong>
+    <%= @event.membersOnly %>
+  </p>
 
-<p>
-  <strong>Members Only:</strong>
-  <%= @event.membersOnly %>
-</p>
-
-<% if user_signed_in? %>
+  <% if user_signed_in? %>
   <%= link_to 'Edit', edit_event_path(@event) %> |
-<% end %>
-<%= link_to 'Back', events_path %>
+  <% end %>
+  <%= link_to 'Back', events_path %>
+</div>

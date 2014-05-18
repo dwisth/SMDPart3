@@ -1,5 +1,5 @@
 class AddSocietyToEvent < ActiveRecord::Migration
   def change
-    add_reference :events, :event, index: true
+    add_reference :events, :society, index: true
   end
 end

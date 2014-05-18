@@ -16,7 +16,7 @@
 
 
 
-<div class="navbar navbar-fixed-top" style="background-color:#EEEEEE">
+<div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
 
@@ -27,7 +27,7 @@
       </a>
       <a class="brand" href=<%=root_path%>>ClubBiz | UniMelb</a>
       <div class="nav-collapse">
-        <ul class="nav navbar-nav pull-center">
+        <div class="nav navbar-nav pull-center">
           <li><%= link_to 'Events', events_path %></li>
           <li><%= link_to 'Societies', societies_path %></li>
           <% if user_signed_in? %>
@@ -37,8 +37,8 @@
             <li><%= link_to 'Log in', new_user_session_path %></li>
             <li><%= link_to 'Sign up', new_user_registration_path %></li>
           <% end %>
-        </ul>
-        <div class="pull-right" >
+        </div>
+        <div class="nav navbar-nav pull-right" >
           <%= render 'layouts/searchBar' %>
         </div>
       </div>
