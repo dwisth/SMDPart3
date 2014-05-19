@@ -23,11 +23,9 @@ ActiveRecord::Schema.define(version: 20140519042721) do
     t.boolean  "membersOnly"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "event_id"
     t.integer  "society_id"
   end
 
-  add_index "events", ["event_id"], name: "index_events_on_event_id"
   add_index "events", ["society_id"], name: "index_events_on_society_id"
 
   create_table "societies", force: true do |t|
@@ -37,6 +35,11 @@ ActiveRecord::Schema.define(version: 20140519042721) do
     t.boolean  "verified"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "societies_events", id: false, force: true do |t|
+    t.integer "societies_id"
+    t.integer "events_id"
   end
 
   create_table "users", force: true do |t|

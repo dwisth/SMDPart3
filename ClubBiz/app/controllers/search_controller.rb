@@ -13,11 +13,19 @@ class SearchController < ApplicationController
   private
   
   def searchEvents
-  	@events = Event.search params[:search]
+    if !params[:generalSearch].nil?
+      @events = Event.search params[:generalSearch]
+    elsif params[:token] == 'eventAdvSearch'
+      @events = Event.advSearch params
+    end
   end
 
   def searchSocieties
-    @societies = Society.search params[:search]
+    if !params[:generalSearch].nil?
+      @societies = Society.search params[:generalSearch]
+    elsif params[:token] == 'societyAdvSearch'
+      @societies = Society.advSearch params
+    end
   end
 
 end

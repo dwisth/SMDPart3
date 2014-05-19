@@ -17,11 +17,12 @@
     <%= @event.date %>
   </p>
 
-  <p>
-    <strong>Society:</strong>
-    <%= @event.society.name %>
-  </p>
-
+  <% if !@event.society.nil? %>
+    <p>
+      <strong>Society:</strong>
+      <%= @event.society.name %>
+    </p>
+  <% end %>
   <p>
     <strong>Start Time:</strong>
     <%= @event.startTime %>
@@ -45,5 +46,5 @@
   <% if user_signed_in? %>
   <%= link_to 'Edit', edit_event_path(@event) %> |
   <% end %>
-  <%= link_to 'Back', events_path %>
+  <%= link_to 'Back', :back %>
 </div>

@@ -1,2 +1,24 @@
-<h1>Search#societyAdvSearch</h1>
-<p>Find me in app/views/search/societyAdvSearch.html.erb</p>
+<h1>Advanced Society Search<<!--Pass a hidden parameter so the search controller knows where the search came from -->/h1>
+
+
+<%= form_tag(search_dispResults_path, method: "get") do %>
+  <div class="field">
+  <%= label_tag(:name, "Name:") %>
+  <%= text_field_tag(:name) %>
+  </div>
+
+  <div class="field">
+  <%= label_tag(:description, "Description:") %>
+  <%= text_field_tag(:description) %>
+  </div>
+
+  <div class="field">
+  <%= label_tag(:membershipFee, "Membership Fee:") %>
+  <%= text_field_tag(:membershipFee) %>
+  </div>
+
+  <!--Pass a hidden parameter so the search controller knows where the search came from -->
+  <input id="token" name="token" type="hidden" value="societyAdvSearch" />
+
+  <%= submit_tag("Search")%>
+<% end %>
