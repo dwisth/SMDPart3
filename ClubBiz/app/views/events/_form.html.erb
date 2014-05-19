@@ -39,9 +39,10 @@
     <%= f.label :membersOnly %><br>
     <%= f.check_box :membersOnly %>
   </div>
+  <!-- Justin said it's better to have this part in the controller instead. More marks zone -->
   <div class="field">
     <%= f.label :society %><br>
-    <%= f.collection_select( :society, Society.all, :id, :name, prompt: true) %>
+    <%= f.collection_select( :society_id, Society.all, :id, :name, prompt: true) %>
   </div>
   <div class="actions">
     <%= f.submit %>

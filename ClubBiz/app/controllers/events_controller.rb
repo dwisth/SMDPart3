@@ -27,6 +27,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    puts "!!!!!! #{event_params}!!!!!"
 
     respond_to do |format|
       if @event.save
