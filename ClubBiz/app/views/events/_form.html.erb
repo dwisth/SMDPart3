@@ -40,10 +40,14 @@
     <%= f.check_box :membersOnly %>
   </div>
   <!-- Justin said it's better to have this part in the controller instead. More marks zone -->
-  <div class="field">
+<!--   <div class="field">
     <%= f.label :society %><br>
     <%= f.collection_select( :society_id, Society.all, :id, :name, prompt: true) %>
-  </div>
+  </div> -->
+  <div>
+  <%= f.label :societies %>
+  <%= select_tag "organizing_societies", options_from_collection_for_select(Society.all, 'id', 'name',@event.societies.map{ |j| j.id }), :multiple => true %>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>

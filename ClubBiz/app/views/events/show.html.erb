@@ -11,18 +11,19 @@
     <strong>Location:</strong>
     <%= @event.location %>
   </p>
-
+  
+  <p>
+    <strong>Society:</strong>
+    <% @event.societies.each do|society| %>
+    <li><%=society.name%></li>
+    <%end%>
+  </p>
+  
   <p>
     <strong>Date:</strong>
     <%= @event.date %>
   </p>
 
-  <% if !@event.society.nil? %>
-    <p>
-      <strong>Society:</strong>
-      <%= @event.society.name %>
-    </p>
-  <% end %>
   <p>
     <strong>Start Time:</strong>
     <%= @event.startTime %>

@@ -16,7 +16,8 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = Event.new()
+ 
   end
 
   # GET /events/1/edit
@@ -27,6 +28,9 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+
+    @societies=Society.where(:id=>params[:organizing_societies])
+    @event.societies << @societies
     puts "!!!!!! #{event_params}!!!!!"
 
     respond_to do |format|
@@ -43,6 +47,9 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    @societies = Society.where(:id => params[:organizing_societies])
+    @event.societies.destroy_all   #disassociate the already added organizers
+    @event.societies << @societies
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
@@ -72,6 +79,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :location, :date, :startTime, :endTime, :description, :membersOnly, :society)
+      params.require(:event).permit(:name, :location, :date, :startTime, :endTime, :description, :membersOnly, :organizing_societies)
     end
 end

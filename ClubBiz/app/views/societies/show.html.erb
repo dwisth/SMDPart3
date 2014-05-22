@@ -12,14 +12,17 @@
   <%= @society.description %>
 </p>
 
+  <p>
+    <strong>Events:</strong>
+    <% @society.events.each do|event| %>
+    <li><%=event.name%></li>
+    <%end%>
+  </p>
+
+
 <p>
   <strong>Membershipfee:</strong>
   <%= @society.membershipFee %>
-</p>
-
-<p>
-  <strong>Events:</strong>
-  <%= @society.events.all %>
 </p>
 
 <p>

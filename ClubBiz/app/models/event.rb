@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
 
-	belongs_to :society
+	has_and_belongs_to_many :societies
+	# belongs_to :society
 
 	def self.search(search)
   		search_condition = "%" + search + "%"
