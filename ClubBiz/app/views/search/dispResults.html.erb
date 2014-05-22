@@ -1,5 +1,5 @@
-<h1>Search#dispResults</h1>
-<p>Find me in app/views/search/dispResults.html.erb</p>
+<div class="container">
+<h1>Search Results</h1>
 
 <div>
 <%= link_to 'Advanced event search', search_eventAdvSearch_path %>
@@ -9,21 +9,45 @@
 </div>
 
 <% if !@events.nil? %>
-	<h3>Events</h3>
-	<ul>
-		<% @events.each do |event| %>
-			<li><%= link_to event.name, :controller => 'events', :action => 'show', :id => event.id %>
-			</li>
-		<% end %>
-	</ul>
+<h3>Events</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= link_to event.name, :controller => 'events', :action => 'show', :id => event.id %></td>
+        <td><%= event.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <% end %>
 
+
 <% if !@societies.nil? %>
-	<h3>Societies</h3>
-	<ul>
-		<% @societies.each do |society| %>
-			<li><%= link_to society.name, :controller => 'societies', :action => 'show', :id => society.id %>
-			</li>
-		<% end %>
-	</ul>
+<h3>Societies</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Society Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @societies.each do |society| %>
+      <tr>
+        <td><%= link_to society.name, :controller => 'societies', :action => 'show', :id => society.id %></td>
+        <td><%= society.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <% end %>
+</div>

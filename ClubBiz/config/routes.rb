@@ -1,4 +1,8 @@
 ClubBiz::Application.routes.draw do
+  resources :event_posts
+
+  resources :tickets
+
   get "search/societyAdvSearch"
   get "search/eventAdvSearch"
   get "search/dispResults"

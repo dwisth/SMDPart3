@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522025538) do
+ActiveRecord::Schema.define(version: 20140522060334) do
+
+  create_table "event_posts", force: true do |t|
+    t.string   "title"
+    t.string   "msg"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "events", force: true do |t|
     t.string   "name"
@@ -40,6 +47,13 @@ ActiveRecord::Schema.define(version: 20140522025538) do
     t.string   "description"
     t.float    "membershipFee"
     t.boolean  "verified"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tickets", force: true do |t|
+    t.string   "ticketType"
+    t.float    "price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
