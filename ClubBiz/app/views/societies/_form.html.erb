@@ -23,10 +23,14 @@
     <%= f.label :membershipFee %><br>
     <%= f.text_field :membershipFee %>
   </div>
+
+  <% if current_user.webAdmin %>
   <div class="field">
     <%= f.label :verified %><br>
     <%= f.check_box :verified %>
   </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

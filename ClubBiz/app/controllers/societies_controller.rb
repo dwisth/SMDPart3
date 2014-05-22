@@ -2,6 +2,7 @@ class SocietiesController < ApplicationController
   before_action :set_society, only: [:show, :edit, :update, :destroy]
   #From Q6
   before_action :authenticate_user!, only: [:edit, :new, :update, :destroy]
+  before_action :is_webAdmin, only: [:destroy]
 
   # GET /societies
   # GET /societies.json
@@ -27,7 +28,9 @@ class SocietiesController < ApplicationController
   # POST /societies.json
   def create
     @society = Society.new(society_params)
-
+    if !current_user.webAdmin
+      @society.verified=false
+    end
     respond_to do |format|
       if @society.save
         format.html { redirect_to @society, notice: 'Society was successfully created.' }
@@ -72,5 +75,9 @@ class SocietiesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def society_params
       params.require(:society).permit(:name, :description, :membershipFee, :verified)
+    end
+
+    def is_webAdmin
+      current_user.webAdmin
     end
 end
