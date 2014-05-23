@@ -49,6 +49,10 @@
     <%= @event.ticketAmount %>
   </p>
 
+    <% if user_signed_in? %>
+  <%= link_to 'Buy Ticket', new_ticket_path %>
+  <% end %>
+
 
   <% if user_signed_in? %>
   <%= link_to 'Edit', edit_event_path(@event) %> |
