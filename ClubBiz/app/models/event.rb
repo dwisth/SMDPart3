@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
 
 	has_and_belongs_to_many :societies
+	has_many :tickets
 	# belongs_to :society
 
 	def self.search(search)

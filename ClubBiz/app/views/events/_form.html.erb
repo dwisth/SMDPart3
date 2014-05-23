@@ -47,7 +47,12 @@
   <div>
   <%= f.label :societies %>
   <%= select_tag "organizing_societies", options_from_collection_for_select(Society.all, 'id', 'name',@event.societies.map{ |j| j.id }), :multiple => true %>
-</div>
+  </div>
+  <div class="field">
+    <%= f.label :ticketAmount %><br>
+    <%= f.text_field :ticketAmount %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
