@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523051833) do
+ActiveRecord::Schema.define(version: 20140524005607) do
 
   create_table "event_posts", force: true do |t|
     t.string   "title"
@@ -50,6 +50,11 @@ ActiveRecord::Schema.define(version: 20140523051833) do
     t.boolean  "verified"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "registrationNumber"
+    t.string   "website"
+    t.string   "societyWebsite"
+    t.string   "societyURL"
+    t.string   "customWebsite"
   end
 
   create_table "tickets", force: true do |t|

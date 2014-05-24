@@ -12,17 +12,28 @@
   <%= @society.description %>
 </p>
 
-  <p>
-    <strong>Events:</strong>
-    <% @society.events.each do|event| %>
+<p>
+  <strong>Events:</strong>
+  <% @society.events.each do|event| %>
     <li><%=event.name%></li>
-    <%end%>
-  </p>
+  <%end%>
+</p>
 
+<!--
+<p>
+  <strong>Website:</strong>
+  <a href= <%= "\"" + @society.customWebsite + "\""%> > <%=@society.customWebsite%></a>
+</p>
+-->
 
 <p>
   <strong>Membershipfee:</strong>
   <%= @society.membershipFee %>
+</p>
+
+<p>
+  <strong>Registration Number:</strong>
+  <%= @society.registrationNumber %>
 </p>
 
 <p>

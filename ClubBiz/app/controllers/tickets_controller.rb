@@ -4,16 +4,20 @@ class TicketsController < ApplicationController
   # GET /tickets
   # GET /tickets.json
   def index
-    @tickets = Ticket.all
+    if user_signed_in?
+      @tickets = Ticket.where('user_id = ?', current_user.id)
+    end
   end
 
   # GET /tickets/1
   # GET /tickets/1.json
   def show
+    @user=User.find(@ticket.user_id)
   end
 
   # GET /tickets/new
   def new
+    @event = Event.find(params[:event_id])
     @ticket = Ticket.new
   end
 
@@ -26,6 +30,9 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(ticket_params)
     
+    @ticket.event_id =  params[:event_id]
+    @ticket.user_id = current_user.id
+
     respond_to do |format|
       if @ticket.save
         format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }

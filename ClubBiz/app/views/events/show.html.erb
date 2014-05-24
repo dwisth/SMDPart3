@@ -15,7 +15,7 @@
   <p>
     <strong>Society:</strong>
     <% @event.societies.each do|society| %>
-    <li><%=society.name%></li>
+      <li><%=society.name%></li>
     <%end%>
   </p>
   
@@ -49,9 +49,13 @@
     <%= @event.ticketAmount %>
   </p>
 
-    <% if user_signed_in? %>
-  <%= link_to 'Buy Ticket', new_ticket_path %>
+  <% if user_signed_in? %>
+    <%= form_tag(new_ticket_path,  method: "get") do %>
+    <input id="event_id" name="event_id" type="hidden" value= <%= @event.id%> >
+    <%= submit_tag("Buy Ticket")%>
+    <% end %>
   <% end %>
+
 
 
   <% if user_signed_in? %>

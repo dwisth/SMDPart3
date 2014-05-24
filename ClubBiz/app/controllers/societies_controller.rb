@@ -2,12 +2,15 @@ class SocietiesController < ApplicationController
   before_action :set_society, only: [:show, :edit, :update, :destroy]
   #From Q6
   before_action :authenticate_user!, only: [:edit, :new, :update, :destroy]
-  before_action :is_webAdmin, only: [:destroy]
 
   # GET /societies
   # GET /societies.json
   def index
-    @societies = Society.all
+    if current_user.webAdmin
+      @societies = Society.all
+    else
+      @societies = Society.where('verified = ?', true)
+    end
   end
 
   # GET /societies/1
@@ -59,10 +62,12 @@ class SocietiesController < ApplicationController
   # DELETE /societies/1
   # DELETE /societies/1.json
   def destroy
-    @society.destroy
-    respond_to do |format|
-      format.html { redirect_to societies_url }
-      format.json { head :no_content }
+    if current_user.webAdmin
+      @society.destroy
+      respond_to do |format|
+        format.html { redirect_to societies_url }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -77,7 +82,7 @@ class SocietiesController < ApplicationController
       params.require(:society).permit(:name, :description, :membershipFee, :verified)
     end
 
-    def is_webAdmin
+    def is_webAdmin?
       current_user.webAdmin
     end
 end

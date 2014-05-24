@@ -19,9 +19,20 @@
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
+
+  <!--<div class="field">
+    <%= f.label :customWebsite %><br>
+    <%= f.text_field :customWebsite %>
+  </div> -->
+
   <div class="field">
     <%= f.label :membershipFee %><br>
     <%= f.text_field :membershipFee %>
+  </div>
+
+  <div class="field">
+    <%= f.label :registrationNumber %><br>
+    <%= f.text_field :registrationNumber %>
   </div>
 
   <% if current_user.webAdmin %>

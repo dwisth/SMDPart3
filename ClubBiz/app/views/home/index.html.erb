@@ -1,21 +1,20 @@
-<!-- <p>Find me in app/views/home/index.html.erb</p>
--->
+<!-- <p>Find me in app/views/home/index.html.erb</p>-->
+
 <div class="container">
 	<div class="row">
 <!--     <div class="span9"><%= yield %></div>
 	<div class="span3"> -->
 		<h2>About Us</h2>
 		<p>A bunch of newbs doing web design</p> 
-
-        <% if user_signed_in? %>
-        <% current_user.tickets.each do|ticket| %>
-    		<li><%=ticket.name%></li>
-    		<% end %>
-    	
-
-
-         <% end %>		<!-- </div> -->
 	</div>
+
+    <% if user_signed_in? %>   
+        <h3>Purchased Tickets</h3>
+        <%= link_to 'Ticket Manager', tickets_path %>
+        <% @tickets.each do |ticket| %>
+            <li><%=ticket.price%></li>
+        <% end %>
+    <% end %>
 </div>
 
 

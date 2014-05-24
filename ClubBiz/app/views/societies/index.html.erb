@@ -12,8 +12,6 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th>Membershipfee</th>
-      <th>Verified</th>
       <th></th>
       <th></th>
       <th></th>
@@ -25,10 +23,8 @@
       <tr>
         <td><%= link_to society.name, society %></td>
         <td><%= society.description %></td>
-        <td><%= society.membershipFee %></td>
-        <td><%= society.verified %></td>
         <!-- <td><%= link_to 'Show', society %></td> -->
-        <% if user_signed_in? %>
+        <% if user_signed_in? && current_user.webAdmin %>
           <td><%= link_to 'Edit', edit_society_path(society) %></td>
           <td><%= link_to 'Destroy', society, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
